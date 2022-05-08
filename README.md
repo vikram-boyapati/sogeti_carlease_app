@@ -45,7 +45,7 @@ To stop the services
 
 `docker-compose down`
 
-Ro redeploy specific service
+For redeploying specific service
 
 `docker-compose stop -t 1 service_name`
 
