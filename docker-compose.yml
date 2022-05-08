@@ -71,3 +71,21 @@ services:
       eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
     links:
       - eureka-server
+
+  cloud-gateway-service:
+    image: cloud-gateway-service
+    container_name: cloud-gateway-service
+    networks:
+      - ms-network
+    build:
+      context: ./cloud-gateway-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+    environment:
+      server.port: 8081
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+    links:
+      - eureka-server

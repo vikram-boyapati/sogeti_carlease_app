@@ -12,51 +12,6 @@
         <module>car-data-service</module>
         <module>customer-service</module>
         <module>lease-rate</module>
+        <module>cloud-gateway-service</module>
     </modules>
-    <build>
-        <plugins>
-            <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.6</version>
-                    <executions>
-                        <execution>
-                            <id>copy-resources</id>
-                            <phase>process-classes</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>docker/apps/</outputDirectory>
-                                <resources>
-                                    <resource>
-                                        <directory>${basedir}/eureka-server/target/</directory>
-                                        <includes>
-                                            <include>*.jar</include>
-                                        </includes>
-                                    </resource>
-                                    <resource>
-                                        <directory>${basedir}/car-data-service/target/</directory>
-                                        <includes>
-                                            <include>*.jar</include>
-                                        </includes>
-                                    </resource>
-                                    <resource>
-                                        <directory>${basedir}/customer-service/target/</directory>
-                                        <includes>
-                                            <include>*.jar</include>
-                                        </includes>
-                                    </resource>
-                                    <resource>
-                                        <directory>${basedir}/lease-rate/target/</directory>
-                                        <includes>
-                                            <include>*.jar</include>
-                                        </includes>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-    </build>
 </project>

@@ -15,6 +15,8 @@ This solution contains following services;
 
 - **lease-rate** - microservice for calculation of lease rate.
 
+- **cloud-gateway-service** - microservice for wrapping all the services with API gateway.
+
 - Docker image for Containerisation of current solution.
 
 ### Prerequisite ###
@@ -36,6 +38,7 @@ Run with existing docker images
 If you want to change anything on any service(s), you need to build the service(s) you changed and then :
 
 `docker-compose build`
+
 `docker-compose up`
 
 To stop the services
@@ -43,9 +46,13 @@ To stop the services
 `docker-compose down`
 
 Ro redeploy specific service
+
 `docker-compose stop -t 1 service_name`
+
 `docker-compose build service_name`
+
 `docker-compose up --no-start service_name`
+
 `docker-compose start service_name`
 
 ### Open Known Pending Action Items ###
