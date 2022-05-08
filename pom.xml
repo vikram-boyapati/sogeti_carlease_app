@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.vikram</groupId>
+    <artifactId>project-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>eureka-server</module>
+        <module>car-data-service</module>
+        <module>customer-service</module>
+        <module>lease-rate</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                    <executions>
+                        <execution>
+                            <id>copy-resources</id>
+                            <phase>process-classes</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>docker/apps/</outputDirectory>
+                                <resources>
+                                    <resource>
+                                        <directory>${basedir}/eureka-server/target/</directory>
+                                        <includes>
+                                            <include>*.jar</include>
+                                        </includes>
+                                    </resource>
+                                    <resource>
+                                        <directory>${basedir}/car-data-service/target/</directory>
+                                        <includes>
+                                            <include>*.jar</include>
+                                        </includes>
+                                    </resource>
+                                    <resource>
+                                        <directory>${basedir}/customer-service/target/</directory>
+                                        <includes>
+                                            <include>*.jar</include>
+                                        </includes>
+                                    </resource>
+                                    <resource>
+                                        <directory>${basedir}/lease-rate/target/</directory>
+                                        <includes>
+                                            <include>*.jar</include>
+                                        </includes>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+    </build>
+</project>
